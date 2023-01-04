@@ -1,69 +1,173 @@
 import React, { useState } from "react";
-import "./header.css";
+import styled from "styled-components";
 import { HOME, ABOUT, PORTFOLIO, SKILLS, CONTACT, GITHUB, LINKEDIN, INSTAGRAM, FACEBOOK } from "../../constants";
 import SocialIcon from "../socialIcon/SocialIcon";
 import { BsGithub, BsLinkedin, BsInstagram, BsFacebook } from "react-icons/bs";
 
+const HeaderContainer = styled.header`
+	width: 100%;
+`;
+
+const NavBar = styled.nav`
+	position: fixed;
+	z-index: 10;
+	background-color: #d9d9d913;
+	width: 100%;
+	height: 5rem;
+	display: flex;
+	justify-content: flex-end;
+	box-shadow: 0px 10px 10px -5px rgba(255, 255, 255, 0.3);
+
+	@media screen and (max-width: 835px) {
+		justify-content: space-between;
+	}
+`;
+
+const Menu = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+	@media screen and (max-width: 835px) {
+		display: ${({ isMenuClicked }) => (isMenuClicked ? "inherit" : "none")};
+		width: 100%;
+		height: 100vh;
+		background-color: #1b1310;
+		opacity: 0.6;
+		position: absolute;
+		top: 0;
+		z-index: -1;
+		justify-content: center;
+	}
+`;
+
+const NavMenu = styled.ul`
+	display: flex;
+
+	@media screen and (max-width: 835px) {
+		display: block;
+		text-align: center;
+	}
+`;
+
+const NavContent = styled.li`
+	padding: 5px 20px 10px 0;
+`;
+
+const NavContentLink = styled.a`
+	font-size: 1.5rem;
+`;
+
+const HeaderSocials = styled.div`
+	display: none;
+
+	@media screen and (max-width: 835px) {
+		display: flex;
+		align-items: center;
+	}
+`;
+
+const HeaderSocialsLink = styled.a`
+	@media screen and (max-width: 835px) {
+		padding-right: 20px;
+	}
+`;
+
+const BurgerMenu = styled.div`
+	@media screen and (max-width: 835px) {
+		height: 100%;
+		width: 3rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		cursor: pointer;
+		padding: 1rem;
+
+		div {
+			width: 3.5rem;
+			height: 0.5rem;
+			background-color: #fff;
+			opacity: 0.6;
+			border-radius: 0.3rem;
+
+			&:nth-child(1) {
+				transform: ${({ isMenuClicked }) =>
+					isMenuClicked ? "rotate(45deg) translate(0.75em, 1.25em)" : "rotate(0) translate(0)"};
+				transition: ${({ isMenuClicked }) =>
+					isMenuClicked ? "ease-out 0.5s" : "cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;"};
+			}
+			&:nth-child(2) {
+				transform: ${({ isMenuClicked }) => (isMenuClicked ? "scale(0.1)" : "rotate(0) translate(0)")};
+				transition: ${({ isMenuClicked }) =>
+					isMenuClicked ? "ease-out 0.5s" : "cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;"};
+			}
+			&:nth-child(3) {
+				transform: ${({ isMenuClicked }) =>
+					isMenuClicked ? "rotate(135deg) translate(-0.5em, 1em)" : "rotate(0) translate(0)"};
+				transition: ${({ isMenuClicked }) =>
+					isMenuClicked ? "ease-out 0.5s" : "cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;"};
+			}
+		}
+	}
+`;
+
 const Header = () => {
-	const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
-	const [menu_class, setMenuClass] = useState("menu hidden");
 	const [isMenuClicked, setIsMenuClicked] = useState(false);
 
-	const updateMenu = () => {
-		if (!isMenuClicked) {
-			setBurgerClass("burger-bar clicked");
-			setMenuClass("menu visible");
-		} else {
-			setBurgerClass("burger-bar unclicked");
-			setMenuClass("menu hidden");
-		}
-		setIsMenuClicked(!isMenuClicked);
-	};
-
 	return (
-		<div className="header-container">
-			<nav className="nav-bar">
-				<div className="burger-menu" onClick={updateMenu}>
-					<div className={burger_class}></div>
-					<div className={burger_class}></div>
-					<div className={burger_class}></div>
-				</div>
-				<div className="header-socials">
+		<HeaderContainer>
+			<NavBar>
+				<BurgerMenu isMenuClicked={isMenuClicked} onClick={() => setIsMenuClicked(!isMenuClicked)}>
+					<div />
+					<div />
+					<div />
+				</BurgerMenu>
+
+				<HeaderSocials>
 					<SocialIcon url={GITHUB}>
-						<BsGithub />
+						<HeaderSocialsLink>
+							<BsGithub />
+						</HeaderSocialsLink>
 					</SocialIcon>
 					<SocialIcon url={LINKEDIN}>
-						<BsLinkedin />
+						<HeaderSocialsLink>
+							<BsLinkedin />
+						</HeaderSocialsLink>
 					</SocialIcon>
 					<SocialIcon url={INSTAGRAM}>
-						<BsInstagram />
+						<HeaderSocialsLink>
+							<BsInstagram />
+						</HeaderSocialsLink>
 					</SocialIcon>
 					<SocialIcon url={FACEBOOK}>
-						<BsFacebook />
+						<HeaderSocialsLink>
+							<BsFacebook />
+						</HeaderSocialsLink>
 					</SocialIcon>
-				</div>
+				</HeaderSocials>
 
-				<div className={menu_class}>
-					<ul className="nav-menu">
-						<li className="nav-content">
-							<a href="#home">{HOME}</a>
-						</li>
-						<li className="nav-content">
-							<a href="#about">{ABOUT}</a>
-						</li>
-						<li className="nav-content">
-							<a href="#portfolio">{PORTFOLIO}</a>
-						</li>
-						<li className="nav-content">
-							<a href="#skills">{SKILLS}</a>
-						</li>
-						<li className="nav-content">
-							<a href="#contact">{CONTACT}</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</div>
+				<Menu isMenuClicked={isMenuClicked}>
+					<NavMenu>
+						<NavContent>
+							<NavContentLink href="#">{HOME}</NavContentLink>
+						</NavContent>
+						<NavContent>
+							<NavContentLink href="#">{ABOUT}</NavContentLink>
+						</NavContent>
+						<NavContent>
+							<NavContentLink href="#">{PORTFOLIO}</NavContentLink>
+						</NavContent>
+						<NavContent>
+							<NavContentLink href="#">{SKILLS}</NavContentLink>
+						</NavContent>
+						<NavContent>
+							<NavContentLink href="#">{CONTACT}</NavContentLink>
+						</NavContent>
+					</NavMenu>
+				</Menu>
+			</NavBar>
+		</HeaderContainer>
 	);
 };
 
