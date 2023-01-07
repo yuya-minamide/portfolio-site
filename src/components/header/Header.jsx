@@ -11,6 +11,7 @@ const HeaderContainer = styled.header`
 const NavBar = styled.nav`
 	position: fixed;
 	z-index: 10;
+	top: 0;
 	background-color: #d9d9d913;
 	width: 100%;
 	height: 5rem;
@@ -18,7 +19,7 @@ const NavBar = styled.nav`
 	justify-content: flex-end;
 	box-shadow: 0px 10px 10px -5px rgba(255, 255, 255, 0.3);
 
-	@media screen and (max-width: 835px) {
+	@media screen and (max-width: 960px) {
 		justify-content: space-between;
 	}
 `;
@@ -28,12 +29,12 @@ const Menu = styled.div`
 	justify-content: flex-end;
 	align-items: center;
 
-	@media screen and (max-width: 835px) {
+	@media screen and (max-width: 960px) {
 		display: ${({ isMenuClicked }) => (isMenuClicked ? "inherit" : "none")};
 		width: 100%;
 		height: 100vh;
 		background-color: #1b1310;
-		opacity: 0.6;
+		opacity: 0.7;
 		position: absolute;
 		top: 0;
 		z-index: -1;
@@ -44,7 +45,7 @@ const Menu = styled.div`
 const NavMenu = styled.ul`
 	display: flex;
 
-	@media screen and (max-width: 835px) {
+	@media screen and (max-width: 960px) {
 		display: block;
 		text-align: center;
 	}
@@ -61,20 +62,20 @@ const NavContentLink = styled.a`
 const HeaderSocials = styled.div`
 	display: none;
 
-	@media screen and (max-width: 835px) {
+	@media screen and (max-width: 960px) {
 		display: flex;
 		align-items: center;
 	}
 `;
 
 const HeaderSocialsLink = styled.a`
-	@media screen and (max-width: 835px) {
+	@media screen and (max-width: 960px) {
 		padding-right: 20px;
 	}
 `;
 
 const BurgerMenu = styled.div`
-	@media screen and (max-width: 835px) {
+	@media screen and (max-width: 960px) {
 		height: 100%;
 		width: 3rem;
 		display: flex;

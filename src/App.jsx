@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "./components/index";
+import { Header, SideBar, Main } from "./components/index";
 import { GlobalStyle } from "./GlobalStyle";
 
 const App = () => {
@@ -7,6 +7,8 @@ const App = () => {
 		<React.Fragment>
 			<GlobalStyle />
 			<Header />
+			<SideBar />
+			<Main />
 		</React.Fragment>
 	);
 };
