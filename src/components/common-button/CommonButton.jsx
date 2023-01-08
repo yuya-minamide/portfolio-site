@@ -11,8 +11,8 @@ const ButtonContainer = styled.div`
 const Button = styled.a`
 	position: relative;
 	display: inline-block;
-	border: solid 2px #fb8903;
-	background-color: #242235;
+	border: solid 2px var(--color-orange);
+	background-color: var(--color-bg);
 	border-radius: 8px;
 	font-size: 1.4rem;
 	font-weight: bold;

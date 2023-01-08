@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Home } from "../index";
+import { Home, About } from "../index";
 
 const MainContainer = styled.main`
 	margin: 0 15%;
@@ -14,6 +14,7 @@ const Main = () => {
 	return (
 		<MainContainer>
 			<Home />
+			<About />
 		</MainContainer>
 	);
 };

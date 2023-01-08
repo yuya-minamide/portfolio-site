@@ -56,6 +56,11 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--color-orange);
   }
 
+  p {
+    letter-spacing: 1px;
+	  line-height: 1.5;
+  }
+
   img {
     display: block;
     width: 100%;

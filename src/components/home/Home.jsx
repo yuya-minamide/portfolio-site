@@ -32,7 +32,7 @@ const HomeContainer = styled.div`
 `;
 
 const Greeting = styled.h4`
-	color: #fb8903;
+	color: var(--color-orange);
 `;
 
 const MyName = styled.h1`
@@ -41,7 +41,7 @@ const MyName = styled.h1`
 `;
 
 const ShortIntroduction = styled.p`
-	letter-spacing: 0.8px;
+	font-size: 1.2rem;
 `;
 
 const Home = () => {

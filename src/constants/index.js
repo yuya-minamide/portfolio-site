@@ -34,3 +34,10 @@ export const MY_POSITION = "Frontend Developer.";
 export const SHORT_INTRODUCTION1 = "I am a Frontend Developer.";
 export const SHORT_INTRODUCTION2 = "I am specialized in frontend development";
 export const SHORT_INTRODUCTION3 = "using React.js, Next.js, Typescript, and Redux.";
+
+/**
+ * About
+ */
+export const ABOUT_TITLE = "About Me";
+export const INTRODUCTION =
+	"I am a Frontend Developer working mainly in web development with a passion for creating various products that improve the lives of users. I like to put myself in challenging situations to pursue quality improvement and always contribute to the growth of the team.";

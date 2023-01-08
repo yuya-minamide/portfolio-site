@@ -21,14 +21,14 @@ const HeaderSocials = styled.div`
 		content: "";
 		width: 1px;
 		height: 4rem;
-		background: #ffffff;
+		background: var(--color-white);
 	}
 
 	&:after {
 		content: "";
 		width: 1px;
 		height: 4rem;
-		background: #ffffff;
+		background: var(--color-white);
 	}
 
 	@media screen and (max-width: 960px) {
