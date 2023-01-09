@@ -154,7 +154,7 @@ const Header = () => {
 							<NavContentLink href="#">{HOME}</NavContentLink>
 						</NavContent>
 						<NavContent>
-							<NavContentLink href="#">{ABOUT}</NavContentLink>
+							<NavContentLink href="#about">{ABOUT}</NavContentLink>
 						</NavContent>
 						<NavContent>
 							<NavContentLink href="#">{PORTFOLIO}</NavContentLink>
